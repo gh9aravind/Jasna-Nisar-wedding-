@@ -606,10 +606,22 @@
     border-radius: 40px;
     box-shadow: 0 4px 30px rgba(200,150,46,0.4);
     transition: transform 0.2s, box-shadow 0.2s;
+    animation: glowPulse 2s ease-in-out infinite;
   }
   .rsvp-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 40px rgba(200,150,46,0.55);
+    @keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 4px 30px rgba(200,150,46,0.4),
+                0 0 0px rgba(232,196,106,0);
+  }
+  50% {
+    box-shadow: 0 4px 40px rgba(200,150,46,0.8),
+                0 0 40px rgba(232,196,106,0.6),
+                0 0 80px rgba(232,196,106,0.3);
+  }
+    }
   }
 
   /* ── SAVE THE DATE ── */
