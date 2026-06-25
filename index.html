@@ -1119,7 +1119,7 @@ window.addEventListener('scroll', () => {
     // accumulate scroll delta
     const delta = e.deltaY || e.touches?.[0]?.clientY || 0;
     const dir = e.deltaY > 0 ? 1 : -1;
-    progress = Math.max(0, Math.min(progress + dir * Math.abs(delta) * 0.004, 1));
+    progress = Math.max(0, Math.min(progress + dir * Math.abs(delta) * 0.0015, 1));
     update();
   }
 
