@@ -1003,6 +1003,13 @@ const observer = new IntersectionObserver((entries) => {
 
 revealEls.forEach(el => observer.observe(el));
 
+// ── SCROLL PROGRESS BAR ──
+window.addEventListener('scroll', () => {
+  const docH = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = (window.scrollY / docH) * 100;
+  document.getElementById('scroll-bar').style.width = progress + '%';
+});
+
 
 // ── COUNTDOWN ──
 // EDIT: Change wedding date (YYYY, Month-1, Day, Hour, Minute)
