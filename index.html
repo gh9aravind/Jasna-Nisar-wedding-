@@ -1110,6 +1110,19 @@ window.addEventListener('scroll', () => {
   document.getElementById('scroll-bar').style.width = progress + '%';
 });
 
+// ── ENVELOPE INTRO ──
+const overlay = document.getElementById('envelope-overlay');
+const env     = document.getElementById('envelope');
+const hint    = document.getElementById('env-tap-hint');
+
+env.addEventListener('click', () => {
+  env.classList.add('open');
+  hint.style.opacity = '0';
+  setTimeout(() => {
+    overlay.classList.add('hide');
+    setTimeout(() => overlay.remove(), 900);
+  }, 1200);
+});
 
 // ── COUNTDOWN ──
 // EDIT: Change wedding date (YYYY, Month-1, Day, Hour, Minute)
