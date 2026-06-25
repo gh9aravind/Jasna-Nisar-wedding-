@@ -774,6 +774,43 @@
 </head>
 <body>
 
+<div id="envelope-overlay">
+  <div id="envelope">
+    <svg viewBox="0 0 280 180" fill="none">
+      <!-- envelope body -->
+      <rect x="0" y="30" width="280" height="150" rx="4"
+            fill="#2C1F0E" stroke="#C8962E" stroke-width="1.5"/>
+      <!-- V fold lines -->
+      <path d="M0 30 L140 120 L280 30" 
+            stroke="#C8962E" stroke-width="1" fill="none"/>
+      <!-- flap -->
+      <path id="env-flap" d="M0 30 L140 110 L280 30 L280 0 L0 0 Z"
+            fill="#3A2810" stroke="#C8962E" stroke-width="1.5"/>
+      <!-- seal -->
+      <circle cx="140" cy="105" r="14" fill="#C8962E" opacity="0.9"/>
+      <text x="140" y="110" text-anchor="middle"
+            font-family="serif" font-size="14" fill="#1A1008">✦</text>
+    </svg>
+
+    <div id="env-letter">
+      <p style="font-family:'Cinzel',serif; font-size:0.55rem;
+                letter-spacing:0.2em; color:#C8962E; margin-bottom:6px;">
+        YOU ARE INVITED
+      </p>
+      <p style="font-family:'Playfair Display',serif; font-size:1.1rem;
+                color:#2C1F0E; font-style:italic;">
+        Jasna Fathima<br>&amp; Abdul Nisar
+      </p>
+      <p style="font-size:0.65rem; color:#5C4A2A;
+                margin-top:6px; letter-spacing:0.1em;">
+        July 26, 2026
+      </p>
+    </div>
+
+    <div id="env-tap-hint">TAP TO OPEN</div>
+  </div>
+</div>
+
 <div id="scroll-bar"></div>
 
 <!-- ══ HERO ══ -->
