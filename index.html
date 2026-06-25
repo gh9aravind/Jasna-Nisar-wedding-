@@ -1170,7 +1170,7 @@ window.addEventListener('scroll', () => {
     e.preventDefault();
     const y = e.touches[0].clientY;
     const delta = touchStartY - y;
-    progress = Math.max(0, Math.min(progress + delta * 0.006, 1));
+    progress = Math.max(0, Math.min(progress + delta * 0.003, 1));
     touchStartY = y;
     update();
   }
