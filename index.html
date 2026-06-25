@@ -1121,11 +1121,9 @@ window.addEventListener('scroll', () => {
     e.preventDefault();
     const y = e.touches[0].clientY;
     const delta = touchStartY - y;
-    if (delta > 0) {
-      progress = Math.min(progress + delta * 0.006, 1);
-      touchStartY = y;
-      update();
-    }
+    progress = Math.max(0, Math.min(progress + delta * 0.006, 1));
+    touchStartY = y;
+    update();
   }
 
   window.addEventListener('wheel',     onScroll, { passive: false });
