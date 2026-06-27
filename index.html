@@ -2192,6 +2192,7 @@ document.getElementById('rsvpModal').addEventListener('click', function (e) {
 
 // ── ERROR MODAL ──
 function showError(title, msg) {
+  if (navigator.vibrate) navigator.vibrate([100, 50, 100]);
   document.getElementById('errorModalTitle').textContent = title;
   document.getElementById('errorModalMsg').textContent = msg;
   const overlay = document.getElementById('errorModal');
