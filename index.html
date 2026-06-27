@@ -890,6 +890,51 @@
   display: block;
 }
 
+@media (min-width: 900px) {
+
+  section {
+    max-width: 860px;
+    padding: 90px 50px;
+  }
+
+  .countdown-inner,
+  .rsvp-inner {
+    max-width: 680px;
+  }
+
+  .section-title { font-size: clamp(2.6rem, 5vw, 4.6rem); }
+  .section-subtitle { font-size: 1rem; }
+
+  /* Venue: photo + info side by side */
+  .venue-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+  }
+  .venue-image-placeholder { height: 100%; min-height: 480px; }
+  .venue-body {
+    padding: 48px 44px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .venue-name { font-size: 2.1rem; }
+
+  /* Good to Know: two columns */
+  .details-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  /* Bigger countdown cells */
+  .countdown-cell { padding: 30px 12px 24px; }
+  .countdown-num  { font-size: clamp(2.6rem, 4vw, 3.8rem); }
+
+  /* Bigger buttons */
+  .rsvp-btn { padding: 18px 60px; font-size: 0.8rem; }
+  .map-btn  { padding: 14px 34px; }
+}
+
 /* ── GRADIENT FADE DIVIDER (light → dark) ── */
 .fade-divider {
   width: 100%;
