@@ -2062,9 +2062,15 @@ document.getElementById('rsvpSubmitBtn').addEventListener('click', async functio
    ? (guestRadio.value === 'Other' ? (otherInput.value || 'More') : guestRadio.value)
    : '';
 
-  if (!name)        { alert('Please enter your name · പേര് നൽകൂ'); return; }
-  if (!phone)       { alert('Please enter your phone number · ഫോൺ നമ്പർ നൽകൂ'); return; }
-  if (!guestCount)  { alert('Please select number of guests · എത്ര പേർ എന്ന് തിരഞ്ഞെടുക്കൂ'); return; }
+  if (!name || !/^[a-zA-Z\s\u0D00-\u0D7F]+$/.test(name)) {
+  alert('Name · പേര്'); return;
+  }
+  if (!/^\d{10}$/.test(phone.replace(/\s/g, ''))) {
+  alert('Number · നമ്പർ'); return;
+  }
+  if (!guestCount || guestCount === 'More') {
+  alert('Number of guests · എത്ര പേർ'); return;
+  }
 
   const btn = document.getElementById('rsvpSubmitBtn');
   btn.textContent = 'Sending…';
