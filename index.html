@@ -2198,6 +2198,7 @@ document.getElementById('rsvpSubmitBtn').addEventListener('click', async functio
   document.getElementById('rsvpModal').classList.add('active');
 
   btn.textContent = 'Confirm Attendance →';
+  btn.classList.remove('loading');
   btn.disabled = false;
   document.getElementById('rsvpForm').reset();
 });
