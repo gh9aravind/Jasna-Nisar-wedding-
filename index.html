@@ -2176,7 +2176,8 @@ document.getElementById('rsvpSubmitBtn').addEventListener('click', async functio
   }
 
   const btn = document.getElementById('rsvpSubmitBtn');
-  btn.textContent = 'Sending…';
+  btn.innerHTML = '✦ &nbsp; Sending &nbsp; ✦';
+  btn.classList.add('loading');
   btn.disabled = true;
 
   try {
