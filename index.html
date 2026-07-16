@@ -2314,7 +2314,25 @@ document.querySelectorAll('input[name="guestCount"]').forEach(function(radio) {
   if (!clockAudio || !countdownSection) return;
   clockAudio.volume = 0.5; // adjust clock SFX volume (0 to 1)
 
+  let unlocked = false;
   let inView = false;
+
+  // Unlock playback on the first genuine user gesture (tap/click/key press).
+  // Browsers block audio-with-sound autoplay until this happens once.
+  function unlockAudio() {
+    if (unlocked) return;
+    unlocked = true;
+    clockAudio.play().then(() => {
+      clockAudio.pause();
+      clockAudio.currentTime = 0;
+      if (inView) tryPlayClock();
+    }).catch(() => {
+      unlocked = false; // retry on the next gesture if it still failed
+    });
+  }
+  ['touchend', 'click', 'keydown'].forEach(evt => {
+    window.addEventListener(evt, unlockAudio, { passive: true });
+  });
 
   function tryPlayClock() {
     if (inView && !document.hidden) {
@@ -2336,7 +2354,6 @@ document.querySelectorAll('input[name="guestCount"]').forEach(function(radio) {
 
   io.observe(countdownSection);
 
-  // Pause when the tab/browser goes into the background, resume when it's visible again
   document.addEventListener('visibilitychange', function() {
     if (document.hidden) {
       clockAudio.pause();
